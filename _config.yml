@@ -1,0 +1,12 @@
+# GitHub Pages configuration
+# This tells GitHub Pages to serve static files directly
+
+# No Jekyll processing needed for static HTML
+skip_render: []
+
+# Set the theme to none since we're using custom CSS
+theme: null
+
+# Enable GitHub Pages
+plugins:
+  - jekyll-relative-links
