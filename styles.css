@@ -170,6 +170,177 @@ a:hover { text-decoration: underline; }
   .grid-2 { grid-template-columns: 1fr; }
 }
 
+/* Feedback Form Styles */
+.feedback-intro {
+  color: var(--muted);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.feedback-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 20px;
+}
+
+.feedback-form {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.feedback-form h3 {
+  margin-bottom: 20px;
+  color: var(--brand);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Fix dropdown text color for better visibility */
+.form-group select option {
+  background: #ffffff;
+  color: #000000;
+  padding: 8px;
+}
+
+.form-group select {
+  color: var(--text);
+}
+
+.form-group select:focus {
+  color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(79,140,255,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79,140,255,0.3);
+}
+
+.feedback-info {
+  background: linear-gradient(180deg, rgba(123,211,137,0.05), rgba(123,211,137,0));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.feedback-info h3 {
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+.contact-methods {
+  margin-bottom: 24px;
+}
+
+.contact-method {
+  margin-bottom: 12px;
+  padding: 8px 0;
+}
+
+.contact-method strong {
+  color: var(--text);
+  display: inline-block;
+  width: 80px;
+}
+
+.contact-method a {
+  color: var(--brand);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border);
+}
+
+.contact-method a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.feedback-note {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.feedback-note h4 {
+  margin: 0 0 12px 0;
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.feedback-note ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.feedback-note li {
+  margin-bottom: 4px;
+}
+
+/* Responsive design for feedback */
+@media (max-width: 780px) {
+  .feedback-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .contact-method strong {
+    width: 60px;
+    font-size: 14px;
+  }
+}
+
 /* Print-friendly */
 @media print {
   :root { --bg: #fff; --card: #fff; --text: #000; --muted: #333; --brand: #000; --border: #ccc; }
@@ -178,6 +349,9 @@ a:hover { text-decoration: underline; }
   .print-btn, .nav { display: none !important; }
   .card { border-color: #ddd; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.9em; color: #666; }
+  
+  /* Hide feedback form in print */
+  #feedback { display: none !important; }
 }
 
 
