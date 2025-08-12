@@ -49,6 +49,28 @@ body {
   font-size: clamp(28px, 4vw, 38px);
   letter-spacing: 0.3px;
 }
+
+.suffix {
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+  padding: 0 2px;
+}
+
+.suffix::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius: 1px;
+}
 .title {
   color: var(--muted);
   margin: 0 0 8px 0;
