@@ -434,14 +434,14 @@
         .then(response => {
           // Formspree always returns a 200 status even with CORS warnings
           // So we'll treat any response as success
-          alert('Thank you for your feedback! I will get back to you soon.');
+          alert('Thank you for your feedback!');
           form.reset();
         })
         .catch(error => {
           console.error('Error:', error);
           // Even if there's an error, the form might still work
           // So we'll show a more helpful message
-          alert('Thank you for your feedback! I will get back to you soon.');
+          alert('Thank you for your feedback!');
         })
         .finally(() => {
           submitBtn.textContent = originalText;
