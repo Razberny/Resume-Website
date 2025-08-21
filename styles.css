@@ -44,13 +44,26 @@ body {
 
 .header-wrap {
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap: 12px 24px;
+  grid-template-columns: auto 1fr auto; /* photo | identity | print */
+  grid-template-rows: auto auto;        /* identity, then nav */
+  gap: 12px 24px; 
   align-items: center;
+  justify-content: center;
 }
 
-.identity { grid-column: 1 / -1; }
+.profile-photo {
+  grid-row: 1 / span 2;
+}
+.profile-photo img {
+  width: 160px;
+  height: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+.identity { grid-column: 2; }
 .name {
   margin: 0 0 4px 0;
   font-size: clamp(28px, 4vw, 38px);
@@ -95,7 +108,7 @@ body {
 .contact a { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--border); }
 .contact a:hover { color: var(--brand); border-bottom-color: var(--brand); }
 
-.nav { display: flex; gap: 14px; align-items: center; }
+.nav { grid-column: 2; display: flex; gap: 14px; align-items: center; }
 .nav a {
   color: var(--muted);
   text-decoration: none;
@@ -171,7 +184,10 @@ a { color: var(--brand); }
 a:hover { text-decoration: underline; }
 
 @media (max-width: 780px) {
-  .header-wrap { grid-template-columns: 1fr; }
+  .header-wrap { grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; }
+  .profile-photo { grid-row: 1 / span 2; }
+  .identity { grid-column: 2; }
+  .nav { grid-column: 1 / -1; flex-wrap: wrap; }
   .nav { flex-wrap: wrap; }
   .skills-grid { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
@@ -347,6 +363,8 @@ a:hover { text-decoration: underline; }
     font-size: 14px;
   }
 }
+
+/* Remove old side photo style (not used anymore) */
 
 /* Print-friendly */
 @media print {
