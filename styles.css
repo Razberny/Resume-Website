@@ -169,11 +169,41 @@ h3 { margin: 0 0 6px 0; font-size: 18px; }
 
 .edu .meta { color: var(--muted); }
 
-.grid-2 {
+/* Education and Honors header layouts */
+.edu-header, .honor-header {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px 24px;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 8px;
 }
+
+.edu-left, .honor-left {
+  min-width: 0; /* Allow text to wrap */
+}
+
+.edu-right, .honor-right {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.edu-right .dates, .honor-right .dates {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.honor {
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
 
 .site-footer {
   color: var(--muted);
@@ -191,6 +221,16 @@ a:hover { text-decoration: underline; }
   .nav { flex-wrap: wrap; }
   .skills-grid { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
+  
+  /* Stack education and honors on mobile */
+  .edu-header, .honor-header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .edu-right, .honor-right {
+    text-align: left;
+  }
 }
 
 /* Feedback Form Styles */
